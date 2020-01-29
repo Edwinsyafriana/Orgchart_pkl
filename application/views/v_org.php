@@ -1,12 +1,14 @@
 <html>
 <head>
-    <title>orgChart</title>
+    <title><?php echo $title; ?></title>
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">
     <script src="js/orgChart.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     
 </head>
 <body onload="blockFirstDelButton()">
-  <h3 align="center">Org-Chart</h3>
+ 
+  <h3 align="center">Struktur Org</h3>
     <div id="orgChartContainer">
       <div id="orgChart"></div>
     </div>
@@ -14,14 +16,19 @@
 
 <div id="tree"></div>
     <script>
-    
+
+var editForm = function () {
+            this.nodeId = null;
+        }; 
 
 var chart;
 window.onload = function () {
     chart = new OrgChart(document.getElementById("tree"), {
         template: "luba",
+        enableDragDrop: true,
         layout: OrgChart.mixed,
-        mouseScrool: OrgChart.none,
+        mouseScrool: OrgChart.action.zoom,
+        nodeMouseClick: OrgChart.action.edit,
         menu: {
             pdfPreview: { 
                 text: "PDF Preview", 
@@ -34,9 +41,15 @@ window.onload = function () {
             csv: { text: "Export CSV" }
         },
         nodeMenu: {
-            pdf: { text: "Export PDF" },
-            png: { text: "Export PNG" },
-            svg: { text: "Export SVG" }
+            add:{text: "Add"},
+            edit:{text: "Edit"},
+            remove:{text: "Remove"}
+        },
+        nodeMenu: {
+            details: {text:"Details"},
+            add:{text: "Add"},
+            edit:{text: "Edit"},
+            remove:{text: "Remove"}
         },
         nodeBinding: {
             field_0: "name",
@@ -44,14 +57,15 @@ window.onload = function () {
             img_0: "img"
         },
       
-        nodes: [
+        nodes:  <?php echo json_encode($database);?>
+        /*[
             { id: "1", name: "Edwin Syafriana Randy", title: "Chairman and CEO", email: "amber@domain.com", img: "images/1.png" },
             { id: "2", pid: "1", name: "Faiz", title: "QA Lead", email: "ava@domain.com", img: "images/2.png" },
             { id: "3", pid: "1", name: "Mila", title: "Technical Director", img: "images/2.png" },
             { id: "4", pid: "3", name: "Mitha", title: "Manager", email: "jay@domain.com", img: "images/2.png" },
             { id: "5", pid: "2", name: "Amelia", title: "QA", img: "images/2.png" },
            
-        ]
+        ]*/
     });
 
     function preview(){

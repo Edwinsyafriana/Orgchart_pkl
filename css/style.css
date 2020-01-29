@@ -1,178 +1,66 @@
-#orgChart{
-  width: auto;
-  height: auto;
+html, body {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  font-family: Helvetica;
 }
 
-#orgChartContainer{
-  width: auto;
-  height: 580px;
-  overflow: auto;
-  background: #eeeeee;
+#tree {
+  width: 100%;
+  height: 100%;
 }
 
-.node{
-      border-radius: 10px !important;
-      background: #1794d4 !important;
-      color: white;
-      height: 80px !important;
-      width: 160px !important;
-      border: 2px solid black !important;
-      font-family: sans-serif;
-      font-size: smaller;
-  }
-
-  #jquery-script-menu {
-position: fixed;
-height: 90px;
-width: 100%;
-top: 0;
-left: 0;
-border-top: 5px solid #316594;
-background: #fff;
--moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
--webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
-z-index: 999999;
-padding: 10px 0;
--webkit-box-sizing:content-box;
--moz-box-sizing:content-box;
-box-sizing:content-box;
+/*warna Tabel*/
+[node-id] rect {
+  fill: #01786a;
+}
+[node-id='1'] rect {
+  fill: #637500;
 }
 
-.jquery-script-center ul {
-width: 212px;
-float:left;
-line-height:45px;
-margin:0;
-padding:0;
-list-style:none;
-}
-.jquery-script-center a {
-  text-decoration:none;
+ /*fonts nama*/
+.field_0 {
+  font-family: monospace;
+  text-transform: uppercase;
+  fill: #a3a3a3;
 }
 
-.jquery-script-clear {
-clear:both;
-height:0;
+.field_1 {
+  fill: #a3a3a3;
+}
+/*garis penghubung*/
+[link-id] path {
+  stroke: white;
 }
 
-div.orgChart {
-margin : 10px;
-padding : 20px;
+[link-id='[3][4]'] path {
+  stroke: white;
 }
 
-div.orgChart h2 {
-margin : 0px;
-font-size : 16px;
-font-weight: normal;
-min-height: 20px;
-display: block;
+[control-expcoll-id] circle {
+  fill: #750000;
 }
 
-div.orgChart h3 {
-margin : 0px;
-font-size : 16px;
-font-weight: normal;
-min-height: 20px;
-display: block;
+[control-expcoll-id='3'] circle {
+  fill: #016e25;  
 }
 
-div.orgChart h2:hover {
-color: yellow;
-cursor: text;
-transform: scale(1.4);
+/*titik 3 pojok*/
+[control-node-menu-id] circle {
+  fill: #6abb00;
 }
 
-div.orgChart h3:hover {
-color: yellow;
-cursor: text;
-transform: scale(1.6);
+#tree>svg {
+  background-color: #2E2E2E;
 }
 
-div.orgChart ul {
-list-style : none;
-margin : 4px;
-padding : 0px;
-font-size : 0.8em;
-text-align : left;
+.bg-search-table {
+  background-color: #2E2E2E !important;
 }
 
-div.orgChart ul.stack,
-div.orgChart ul.stack ul { text-align : center; }
-
-div.orgChart table { width : 100%; }
-
-div.orgChart tr.lines td.line {
-width : 1px;
-height : 20px;
+.bg-search-table input {
+  background-color: #2E2E2E !important;
 }
-
-div.orgChart tr.lines td.top { border-top : 2px solid black; }
-
-div.orgChart tr.lines td.left { border-right : 2px solid black; }
-
-div.orgChart tr.lines td.right { border-left : 2px soid black; }
-
-div.orgChart tr.lines td.half { width : 50%; }
-
-div.orgChart td {
-text-align : center;
-vertical-align : top;
-padding : 0px 2px;
-}
-
-div.orgChart div.node {
-cursor : default;
-border : 1px solid #e7e7e7;
-display : inline-block;
-padding : 5px;
-width : 96px;
-height : 60px;
-background: #ffffff; /* Old browsers */
-background: -moz-linear-gradient(top, #ffffff 0%, #fbfbfb 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffffff), color-stop(100%, #fbfbfb)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #ffffff 0%, #fbfbfb 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #ffffff 0%, #fbfbfb 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #ffffff 0%, #fbfbfb 100%); /* IE10+ */
-background: linear-gradient(to bottom, #ffffff 0%, #fbfbfb 100%); /* W3C */
-line-height : 1.3em;
-border-radius : 4px;
--moz-border-radius : 4px;
--webkit-border-radius : 4px;
-position: relative;
-box-shadow: 1px 1px 0px #ddd;
-}
-
-.org-add-button,
-.org-del-button,
-.org-confirm-del-button {
-position: absolute;
-font-size: 12px;
-}
-
-.org-add-button {
-bottom: 3px;
-left: 5px;
-padding-left: 13px;
-background: url(http://imgh.us/add_2.png) no-repeat 0 3px;
-}
-
-.org-add-button:hover,
-.org-del-button:hover {
-color: yellow;
-transform: scale(1.2);
-cursor: pointer;
-}
-
-.org-del-button {
-background:url(http://imgh.us/delete_4.png)   no-repeat;
-width: 12px;
-height: 12px;
-bottom: 7px;
-right: 18px;
-}
-.org-input { width: 90px;
-background-color: white;
-  color: black; }
-
-.org-confirm-del-button { display: none; }
+;
