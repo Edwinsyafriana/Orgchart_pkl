@@ -2,11 +2,11 @@
 <head>
     <title><?php echo $title; ?></title>
     <link href="https://fonts.googleapis.com/css?family=Gochi+Hand" rel="stylesheet">
-    <script src="js/orgChart.js"></script>
+    <script src="./js/orgChart.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     
 </head>
-<body onload="blockFirstDelButton()">
+<body>
  
   <h3 align="center">Struktur Org</h3>
     <div id="orgChartContainer">
